@@ -3,28 +3,25 @@
 
   date.textContent =moment().format("dddd, MMMM Do");  
 
-  $(".list-group").on("click", "p", function() {
-    var text = $(this)
-      .text()
-      .trim();
-      var textInput = $("<textarea>")
-  .addClass("form-control")
-  .val(text);
-  $(this).replaceWith(textInput);
-  textInput.trigger("focus");
+  $("textarea").on("click", function() {
+    
+//     var index = $(this)
+//     .closest(".list-group-item")
+//     .index();
+//     tasks[status][index].text = text;
+// saveTasks();
+});
 
 
-  });
   $("button").on("click", function() {
     var textArea = $(this).closest(".row").find("textarea")
-    var textInput = textArea.val().trim();
+    textInput = textArea.val().trim();
 
-    var textP = $("<p>")
-        .addClass("text-left mt-3 ml-3")
-        .text(textInput);
-    textArea.replaceWith(textP);
-     localStorage.setItem("tasks", JSON.stringify(text));
 
+    saveTasks();
 
 });
-     localStorage.setItem("tasks", JSON.stringify(text));
+var saveTasks= function(){
+    localStorage.setItem("tasks", JSON.stringify(textInput));
+
+}
