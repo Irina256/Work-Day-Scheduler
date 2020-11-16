@@ -27,8 +27,8 @@ let tasks=[];
     tasks.push(JSON.parse(localStorage.getItem("task")));
 localStorage.setItem("task", JSON.stringify(tasks))
 
-    tasks = JSON.parse(localStorage.getItem("task"))||[];
-    tasks.push(taskObj);
+    task = JSON.parse(localStorage.getItem("task"))||[];
+    task.push(taskObj);
 
 
 
@@ -41,7 +41,7 @@ localStorage.setItem("task", JSON.stringify(tasks));
 };
 
   var display =function(){
-    tasks = JSON.parse(localStorage.getItem("task"));
+    task = JSON.parse(localStorage.getItem("task"));
     $("textarea").innerHTML = tasks;
 
   }
