@@ -18,10 +18,24 @@
     textInput = textArea.val().trim();
 
 
-    saveTasks();
-
-});
-var saveTasks= function(){
     localStorage.setItem("tasks", JSON.stringify(textInput));
 
-}
+});
+
+
+var saveTasks= function(){
+tasks = JSON.parse(localStorage.getItem("tasks"));      
+        // if nothing in localStorage, create a new object to track all task status arrays
+        if (!tasks) {
+          tasks = {
+            task: [],
+                     };
+        }
+        $.each(tasks, function(list, arr) {
+            console.log(list, arr);
+            // then loop over sub-array
+           
+          });
+        };
+        
+        saveTasks();
