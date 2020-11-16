@@ -1,8 +1,8 @@
 # Work Day Scheduler
 
 
-![calendar ]
-(https://user-images.githubusercontent.com/43459199/99203307-1cf44600-2780-11eb-973d-917eb03de86c.png)
+
+![image](https://user-images.githubusercontent.com/43459199/99203566-f7b40780-2780-11eb-9169-5b7e58218610.png)
 
 ## Requirements
 * GIVEN I am using a daily planner to create a schedule
