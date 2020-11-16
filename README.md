@@ -27,4 +27,4 @@ This project has been deployed to GitHub Pages. To get this project up and runni
 
 [Github Repository](https://github.com/Irina256/Work-Day-Scheduler)
 
-[Deployed GitHub site](https://irina256.github.io/Work-Day-Scheduler)
+[Deployed GitHub site](https://irina256.github.io/Work-Day-Scheduler/)
