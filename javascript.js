@@ -27,8 +27,8 @@ let tasks=[];
     tasks.push(JSON.parse(localStorage.getItem("task")));
 localStorage.setItem("task", JSON.stringify(tasks))
 
-    task = JSON.parse(localStorage.getItem("task"))||[];
-    task.push(taskObj);
+    tasks = JSON.parse(localStorage.getItem("task"))||[];
+    tasks.push(taskObj);
 
 
 
@@ -40,9 +40,9 @@ localStorage.setItem("task", JSON.stringify(tasks));
 
 };
 
-  var display =function(){
-    task = JSON.parse(localStorage.getItem("task"));
-    $("textarea").innerHTML = tasks;
+  // var display =function(){
+  //   tasks = JSON.parse(localStorage.getItem("task"))||[];
+  //   $("textarea").innerHTML = tasks;
 
-  }
+  // }
    
