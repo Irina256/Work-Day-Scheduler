@@ -7,11 +7,7 @@
 let tasks=[];
 
 
-var display =function(){
-  tasks = JSON.parse(localStorage.getItem("task"));
-  $("textarea").innerHTML = tasks;
 
-}
   
   $("button").on("click", function() {
      
