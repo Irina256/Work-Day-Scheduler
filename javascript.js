@@ -3,17 +3,50 @@
 
   date.textContent =moment().format("dddd, MMMM Do");  
 
+ 
+let tasks=[];
+
+
+var display =function(){
+  tasks = JSON.parse(localStorage.getItem("task"));
+  $("textarea").innerHTML = tasks;
+
+}
   
-
-
-  $("button").on("click", function(event) {
-     $(event.target)
-    var textArea = $(this).closest(".row").find("textarea")
-    textInput = textArea.val().trim();
+  $("button").on("click", function() {
+     
+    var time = $(this).closest(".row").find(".hour").attr("id").replace("hour-","");
+      var text = $(this).closest(".row").find("textarea").val().trim();
     
+   
+
+    var taskObj={
+      time:time,
+      task:text
+    };
+  events(taskObj);
+  });
+  
+  function events(taskObj){
+    tasks.push(JSON.parse(localStorage.getItem("task")));
+localStorage.setItem("task", JSON.stringify(tasks))
+
+    tasks = JSON.parse(localStorage.getItem("task"))||[];
+    tasks.push(taskObj);
 
 
-    localStorage.setItem("tasks", JSON.stringify(textInput));
 
-});
 
+
+localStorage.setItem("task", JSON.stringify(tasks));
+
+
+
+};
+
+  var display =function(){
+    tasks = JSON.parse(localStorage.getItem("task"));
+    $("textarea").innerHTML = tasks;
+
+  }
+   
