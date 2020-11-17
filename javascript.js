@@ -1,65 +1,52 @@
+var date = document.querySelector("#currentDay");
 
-  var date = document.querySelector("#currentDay");
-
-  date.textContent =moment().format("dddd, MMMM Do");  
-
- 
+date.textContent = moment().format("dddd, MMMM Do");
+var tasks;
 
 
-var loadTasks = function() {
-  tasks = JSON.parse(localStorage.getItem("tasks"));
+
+var loadTasks = function () {
+  tasks = JSON.parse(localStorage.getItem("task"));
 
   // if nothing in localStorage, create a new object to track all task status arrays
   if (!tasks) {
-    tasks = {
-     time: [],
-     task: [],
-   
-    };
-  }
-  var tasks =[];
-  tasks.push(JSON.parse(localStorage.getItem("task")));
-localStorage.setItem("task", JSON.stringify(tasks))
+    tasks = []
 
-tasks.forEach(myfunction);
-function myfunction(tasks){
-  $("textarea").innerHTML= JSON.parse(localStorage.getItem("task"));
-console.log(tasks)
+  }
+
+  function myfunction(task) {
+
+    $("#textarea-" + task.time).html(task.task);
+  }
+  tasks.forEach(myfunction);
+
+
+
 }
 
-    
+
+$("button").on("click", function () {
+
+  var time = $(this).closest(".row").find(".hour").attr("id").replace("hour-", "");
+  var text = $(this).closest(".row").find("textarea").val().trim();
 
 
-    }
-  
-  
-  $("button").on("click", function() {
-     
-    var time = $(this).closest(".row").find(".hour").attr("id").replace("hour-","");
-      var text = $(this).closest(".row").find("textarea").val().trim();
-    
-   
 
-    var taskObj={
-      time:time,
-      task:text
-    };
+  var taskObj = {
+    time: time,
+    task: text
+  };
   events(taskObj);
-  });
-  
-  function events(taskObj){
-    var tasks =[];
+});
 
-        tasks = JSON.parse(localStorage.getItem("task"))||[];
-    tasks.push(taskObj);
+function events(taskObj) {
+  tasks.push(taskObj);
 
 
 
-localStorage.setItem("task", JSON.stringify(tasks));
+  localStorage.setItem("task", JSON.stringify(tasks));
 
 
 
 };
 loadTasks();
-
-   
